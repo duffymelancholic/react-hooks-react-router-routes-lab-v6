@@ -4,6 +4,7 @@ import Actors from "./pages/Actors";
 import Movie from "./pages/Movie";
 import ErrorPage from "./pages/ErrorPage";
 import NavBar from "./components/NavBar";
+import { createBrowserRouter } from "react-router-dom";
 
 export const routes = [
   {
@@ -12,12 +13,6 @@ export const routes = [
       <>
         <NavBar />
         <Home />
-      </>
-    ),
-    errorElement: (
-      <>
-        <NavBar />
-        <ErrorPage />
       </>
     ),
   },
@@ -48,8 +43,17 @@ export const routes = [
       </>
     ),
   },
+  {
+    path: "*",
+    element: (
+      <>
+        <NavBar />
+        <ErrorPage />
+      </>
+    ),
+  },
 ];
 
-import { createBrowserRouter } from "react-router-dom";
 const router = createBrowserRouter(routes);
+
 export default router;
